@@ -4110,6 +4110,78 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->submit_reassign_certs_async: %s\n" % e)
+- path: /sources/{sourceId}/classify
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/classify-source#delete-classify-machine-account-from-source
+      source: |
+        from sailpoint.v2025.api.classify_source_api import ClassifySourceApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          try:
+              # Cancel classify source's accounts process
+              
+              ClassifySourceApi(api_client).delete_classify_machine_account_from_source(id=id)
+              # Below is a request that includes all optional parameters
+              # ClassifySourceApi(api_client).delete_classify_machine_account_from_source(id)
+          except Exception as e:
+              print("Exception when calling ClassifySourceApi->delete_classify_machine_account_from_source: %s\n" % e)
+- path: /sources/{sourceId}/classify
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/classify-source#get-classify-machine-account-from-source-status
+      source: |
+        from sailpoint.v2025.api.classify_source_api import ClassifySourceApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.source_classification_status import SourceClassificationStatus
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          try:
+              # Source accounts classification status
+              
+              results = ClassifySourceApi(api_client).get_classify_machine_account_from_source_status(id=id)
+              # Below is a request that includes all optional parameters
+              # results = ClassifySourceApi(api_client).get_classify_machine_account_from_source_status(id)
+              print("The response of ClassifySourceApi->get_classify_machine_account_from_source_status:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ClassifySourceApi->get_classify_machine_account_from_source_status: %s\n" % e)
+- path: /sources/{sourceId}/classify
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/classify-source#send-classify-machine-account-from-source
+      source: |
+        from sailpoint.v2025.api.classify_source_api import ClassifySourceApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.send_classify_machine_account_from_source200_response import SendClassifyMachineAccountFromSource200Response
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          try:
+              # Classify source's all accounts
+              
+              results = ClassifySourceApi(api_client).send_classify_machine_account_from_source(id=id)
+              # Below is a request that includes all optional parameters
+              # results = ClassifySourceApi(api_client).send_classify_machine_account_from_source(id)
+              print("The response of ClassifySourceApi->send_classify_machine_account_from_source:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ClassifySourceApi->send_classify_machine_account_from_source: %s\n" % e)
 - path: /configuration-hub/deploys
   method: POST
   xCodeSample:
@@ -10803,6 +10875,176 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MFAConfigurationApi->test_mfa_config: %s\n" % e)
+- path: /accounts/{id}/classify
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-account-classify#send-classify-machine-account
+      source: |
+        from sailpoint.v2025.api.machine_account_classify_api import MachineAccountClassifyApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.send_classify_machine_account200_response import SendClassifyMachineAccount200Response
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
+          classification_mode = default # str | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to default) # str | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to default)
+          try:
+              # Classify a Single Machine Account
+              
+              results = MachineAccountClassifyApi(api_client).send_classify_machine_account(id=id)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountClassifyApi(api_client).send_classify_machine_account(id, classification_mode)
+              print("The response of MachineAccountClassifyApi->send_classify_machine_account:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountClassifyApi->send_classify_machine_account: %s\n" % e)
+- path: /sources/{sourceId}/machine-account-mappings
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-account-mappings#create-machine-account-mappings
+      source: |
+        from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.attribute_mappings import AttributeMappings
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          attribute_mappings = '''{
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }''' # AttributeMappings | 
+          try:
+              # Create machine account mappings
+              new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
+              results = MachineAccountMappingsApi(api_client).create_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountMappingsApi(api_client).create_machine_account_mappings(id, new_attribute_mappings)
+              print("The response of MachineAccountMappingsApi->create_machine_account_mappings:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->create_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/machine-account-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-account-mappings#delete-machine-account-mappings
+      source: |
+        from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | source ID. # str | source ID.
+          try:
+              # Delete source's machine account mappings
+              
+              MachineAccountMappingsApi(api_client).delete_machine_account_mappings(id=id)
+              # Below is a request that includes all optional parameters
+              # MachineAccountMappingsApi(api_client).delete_machine_account_mappings(id)
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->delete_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/machine-account-mappings
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-account-mappings#list-machine-account-mappings
+      source: |
+        from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.attribute_mappings import AttributeMappings
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID # str | Source ID
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          try:
+              # Machine account mapping for source
+              
+              results = MachineAccountMappingsApi(api_client).list_machine_account_mappings(id=id)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountMappingsApi(api_client).list_machine_account_mappings(id, limit, offset)
+              print("The response of MachineAccountMappingsApi->list_machine_account_mappings:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->list_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/machine-mappings
+  method: PUT
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-account-mappings#set-machine-account-mappings
+      source: |
+        from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.attribute_mappings import AttributeMappings
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          attribute_mappings = '''{
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }''' # AttributeMappings | 
+          try:
+              # Update Source's Machine Account Mappings
+              new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
+              results = MachineAccountMappingsApi(api_client).set_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountMappingsApi(api_client).set_machine_account_mappings(id, new_attribute_mappings)
+              print("The response of MachineAccountMappingsApi->set_machine_account_mappings:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->set_machine_account_mappings: %s\n" % e)
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -10890,6 +11132,85 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MachineAccountsApi->update_machine_account: %s\n" % e)
+- path: /sources/{sourceId}/machine-classification-config
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-classification-config#delete-machine-classification-config
+      source: |
+        from sailpoint.v2025.api.machine_classification_config_api import MachineClassificationConfigApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          try:
+              # Delete source's classification config
+              
+              MachineClassificationConfigApi(api_client).delete_machine_classification_config(id=id)
+              # Below is a request that includes all optional parameters
+              # MachineClassificationConfigApi(api_client).delete_machine_classification_config(id)
+          except Exception as e:
+              print("Exception when calling MachineClassificationConfigApi->delete_machine_classification_config: %s\n" % e)
+- path: /sources/{sourceId}/machine-classification-config
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-classification-config#get-machine-classification-config
+      source: |
+        from sailpoint.v2025.api.machine_classification_config_api import MachineClassificationConfigApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.machine_classification_config import MachineClassificationConfig
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID # str | Source ID
+          try:
+              # Machine classification config for source
+              
+              results = MachineClassificationConfigApi(api_client).get_machine_classification_config(id=id)
+              # Below is a request that includes all optional parameters
+              # results = MachineClassificationConfigApi(api_client).get_machine_classification_config(id)
+              print("The response of MachineClassificationConfigApi->get_machine_classification_config:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineClassificationConfigApi->get_machine_classification_config: %s\n" % e)
+- path: /sources/{sourceId}/machine-classification-config
+  method: PUT
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-classification-config#set-machine-classification-config
+      source: |
+        from sailpoint.v2025.api.machine_classification_config_api import MachineClassificationConfigApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.machine_classification_config import MachineClassificationConfig
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          machine_classification_config = '''{
+          "criteria" : "criteria",
+          "created" : "2017-07-11T18:45:37.098Z",
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "classificationMethod" : "SOURCE",
+          "enabled" : true
+        }''' # MachineClassificationConfig | 
+          try:
+              # Update source's classification config
+              new_machine_classification_config = MachineClassificationConfig.from_json(machine_classification_config)
+              results = MachineClassificationConfigApi(api_client).set_machine_classification_config(id=id, machine_classification_config=new_machine_classification_config)
+              # Below is a request that includes all optional parameters
+              # results = MachineClassificationConfigApi(api_client).set_machine_classification_config(id, new_machine_classification_config)
+              print("The response of MachineClassificationConfigApi->set_machine_classification_config:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineClassificationConfigApi->set_machine_classification_config: %s\n" % e)
 - path: /machine-identities
   method: POST
   xCodeSample:
@@ -10907,12 +11228,25 @@
         with ApiClient(configuration) as api_client:
           x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           machine_identity = '''{
+          "subtype" : "Application",
           "created" : "2015-05-28T14:07:17Z",
           "businessApplication" : "ADService",
           "name" : "aName",
           "modified" : "2015-05-28T14:07:17Z",
           "description" : "",
           "attributes" : "{\"Region\":\"EU\"}",
+          "owners" : {
+            "primaryIdentity" : "{}",
+            "secondaryIdentities" : [ {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            }, {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            } ]
+          },
           "id" : "id12345",
           "manuallyEdited" : true
         }''' # MachineIdentity | 
@@ -10993,7 +11327,7 @@
 
         with ApiClient(configuration) as api_client:
           x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-          filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq* (optional)
+          filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr* (optional)
           sorters = 'businessApplication' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name** (optional)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -18828,6 +19162,34 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->import_connector_file: %s\n" % e)
+- path: /sources/{sourceId}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/sources#import-entitlements
+      source: |
+        from sailpoint.v2025.api.sources_api import SourcesApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.load_entitlement_task import LoadEntitlementTask
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
+          try:
+              # Entitlement aggregation
+              
+              results = SourcesApi(api_client).import_entitlements(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # results = SourcesApi(api_client).import_entitlements(source_id, x_sail_point_experimental, file)
+              print("The response of SourcesApi->import_entitlements:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling SourcesApi->import_entitlements: %s\n" % e)
 - path: /sources/{id}/schemas/entitlements
   method: POST
   xCodeSample:
